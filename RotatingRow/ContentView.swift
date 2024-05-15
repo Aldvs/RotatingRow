@@ -33,11 +33,12 @@ struct RotatingRow: View {
                         .rotationEffect(.degrees(isHorizontal ? 0 : getRotatingAngle()), anchor: .center)
                     }
                 }
+                .frame(width: isHorizontal ? getDefaultWidth() : getDiagonalLength(), height: squareWidth)
                 .border(.black, width: 2)
                 .rotationEffect(.degrees(isHorizontal ? 0 : -getRotatingAngle()), anchor: .center)
                 .animation(.easeInOut, value: isHorizontal)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .frame(width: getDefaultWidth(), height: getDefaultHeight())
             .border(.yellow, width: 2)
         }
     }
@@ -54,6 +55,21 @@ struct RotatingRow: View {
         let angleInDegrees = angle * 180 / .pi
         
         return angleInDegrees
+    }
+    
+    private func getDiagonalLength() -> CGFloat {
+        let screenSize = UIScreen.main.bounds.size
+        return sqrt(pow(screenSize.width, 2) + pow(screenSize.height, 2))
+    }
+    
+    private func getDefaultWidth() -> CGFloat {
+        let screenSize = UIScreen.main.bounds.size
+        return screenSize.width
+    }
+    
+    private func getDefaultHeight() -> CGFloat {
+        let screenSize = UIScreen.main.bounds.size
+        return screenSize.height
     }
     
 }
