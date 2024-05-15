@@ -9,13 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        RotatingRow(numberOfSquares: 7, spacing: 5)
+        RotatingRow()
     }
 }
 
 struct RotatingRow: View {
-    let numberOfSquares: Int
-    let spacing: CGFloat
+    let numberOfSquares: Int = 7
+    let spacing: CGFloat = 2
+    @State var isHorizontal = true
 
     var body: some View {
         GeometryReader { geometry in
@@ -24,22 +25,41 @@ struct RotatingRow: View {
             VStack {
                 HStack(alignment: .center, spacing: spacing) {
                     ForEach(0..<numberOfSquares, id: \.self) { _ in
-                        CustomSquareView(color: .blue) {
+                        CustomSquareView(isHorizontal: $isHorizontal, color: .blue) {
                             // Handle tap gesture
                             print("Square tapped")
                         }
                         .frame(width: squareWidth, height: squareWidth)
+                        .rotationEffect(.degrees(isHorizontal ? 0 : getRotatingAngle()), anchor: .center)
                     }
                 }
                 .border(.black, width: 2)
+                .rotationEffect(.degrees(isHorizontal ? 0 : -getRotatingAngle()), anchor: .center)
+                .animation(.easeInOut, value: isHorizontal)
             }
-            .frame(maxHeight: .infinity)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .border(.yellow, width: 2)
         }
     }
+    
+    func getRotatingAngle() -> Double {
+        let screenSize = UIScreen.main.bounds.size
+        let screenWidth = Double(screenSize.width)
+        let screenHeight = Double(screenSize.height)
+        
+        let diagonalLength = sqrt(pow(screenWidth, 2) + pow(screenHeight, 2))
+        let angle = atan(screenHeight / screenWidth)
+        
+        // Convert radians to degrees
+        let angleInDegrees = angle * 180 / .pi
+        
+        return angleInDegrees
+    }
+    
 }
 
 struct CustomSquareView: View {
+    @Binding var isHorizontal: Bool
     let color: Color
     let onTapGesture: () -> Void
 
@@ -47,6 +67,7 @@ struct CustomSquareView: View {
         Rectangle()
             .fill(color)
             .onTapGesture {
+                isHorizontal.toggle()
                 onTapGesture()
             }
     }
