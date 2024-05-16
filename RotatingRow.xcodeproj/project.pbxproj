@@ -11,6 +11,8 @@
 		847168082BF40F8500E65509 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847168072BF40F8500E65509 /* ContentView.swift */; };
 		8471680A2BF40F8800E65509 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847168092BF40F8800E65509 /* Assets.xcassets */; };
 		8471680D2BF40F8800E65509 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8471680C2BF40F8800E65509 /* Preview Assets.xcassets */; };
+		849EA14A2BF67E6E0076D77A /* Diagonal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849EA1492BF67E6E0076D77A /* Diagonal.swift */; };
+		849EA14C2BF67E9F0076D77A /* Horizontal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849EA14B2BF67E9F0076D77A /* Horizontal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		847168072BF40F8500E65509 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		847168092BF40F8800E65509 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8471680C2BF40F8800E65509 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		849EA1492BF67E6E0076D77A /* Diagonal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diagonal.swift; sourceTree = "<group>"; };
+		849EA14B2BF67E9F0076D77A /* Horizontal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Horizontal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 				847168072BF40F8500E65509 /* ContentView.swift */,
 				847168092BF40F8800E65509 /* Assets.xcassets */,
 				8471680B2BF40F8800E65509 /* Preview Content */,
+				849EA1492BF67E6E0076D77A /* Diagonal.swift */,
+				849EA14B2BF67E9F0076D77A /* Horizontal.swift */,
 			);
 			path = RotatingRow;
 			sourceTree = "<group>";
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849EA14A2BF67E6E0076D77A /* Diagonal.swift in Sources */,
+				849EA14C2BF67E9F0076D77A /* Horizontal.swift in Sources */,
 				847168082BF40F8500E65509 /* ContentView.swift in Sources */,
 				847168062BF40F8500E65509 /* RotatingRowApp.swift in Sources */,
 			);
